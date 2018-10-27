@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>TP JS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<h2 style="text-align: center;">Exerices JS</h2>
+</br>
+<div class="container">
+    <button type="button" class="btn btn-primary" onclick="f13('A')">Exercice 13 A</button>
+    <button type="button" class="btn btn-primary" onclick="f13('B')">Exercice 13 B</button>
+    <button type="button" class="btn btn-primary" onclick="f13('C')">Exercice 13 C</button>
+    <button type="button" class="btn btn-primary" onclick="f14()">Exercice 14</button>
+</div>
+</body>
+</html>
+
+<script>
+    function f13(option) {
+        var regex = new RegExp("[1-2]\\s*[0-9]{2}\\s*[0-9]{2}\\s*(2[AB]|[0-9]{2})\\s*[0-9]{3}\\s*[0-9]{3}\\s*[/]\\s*[0-9]{2}", "gi");
+
+        if (option == 'A') {
+            var saisie = prompt("Saisissez votre numéro de sécurité sociale", "1 97 05 13 056 032 / 04");
+
+            if (regex.test(saisie))
+                alert("Numéro de sécurité sociale valide");
+            else
+                alert("Numéro de séucrité sociale invalide");
+        } else if (option == 'B') {
+            var chaine = "1 97 05 13 056 032 / 04erèfefefefé1 97 05 13 056 032 / 04sù$adzfzf0";
+            var found = chaine.match(regex);
+            alert(found.toString());
+        } else if (option == 'C'){
+            var chaine = "1 97 05 13 056 032 / 04";
+            var tmp = chaine.replace(/[0-9]/gi, '*');
+            alert(tmp);
+        }
+    }
+
+    function f14(){
+        var T = [45, 48, 89, 78];
+        var V = new Array(110, 128, 129, 178);
+        var nb1 = prompt("Saisir un nombre (T): ");
+        var nb2 = prompt("Saisir un nombre (T): ");
+
+        T.push(nb1);
+        T.unshift(nb2);
+        alert("tableau T : " + T.join('-'));
+
+        var Z = T.concat(V);
+        Z = Z.splice(2, Z.length);
+        Z = Z.splice(0, Z.length-2);
+        alert("tableau Z : " + Z.join('/'));
+    }
+</script>
