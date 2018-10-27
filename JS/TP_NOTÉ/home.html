@@ -3,36 +3,83 @@
 <head>
     <meta charset="utf-8">
     <title>TP NOTÉ JS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body >
 <h2 style="text-align: center;">TP NOTÉ JS</h2>
 </br>
 <div class="container">
-    <form name="test" >
-        <h3>Identification</h3>
-        <label for="nom">Nom :</label>
-        <input type="text" class="form-control" id="nom">
-
-        <label for="prenom">Prénom :</label>
-        <input type="text" class="form-control" id="prenom">
+    <form style="width: 500px;" name="test">
+        <h4>Identification</h4>
+        <div class="form-inline">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" id="nom">
+            <label for="prenom">Prénom :</label>
+            <input type="text" class="form-control" id="prenom">
+        </div>
 
         <label for="adresse">Adresse :</label>
         <input type="text" class="form-control" id="adresse">
+        <br>
 
-        <label for="code_postal">Code postal :</label>
-        <input type="text" class="form-control" id="code_postal">
+        <div class="form-inline">
+            <label for="code_postal">Code postal :</label>
+            <input type="text" class="form-control" id="code_postal">
+            <label for="ville">Ville :</label>
+            <input type="text" class="form-control" id="ville">
+        </div>
+        <br>
 
-        <label for="ville">Ville :</label>
-        <input type="text" class="form-control" id="ville">
+        <div class="form-inline">
+            <label for="telephone">Telephone :</label>
+            <input type="text" class="form-control" id="telephone">
+            <label for="email">E-mail :</label>
+            <input type="text" class="form-control" id="email">
 
-        <label for="telephone">Telephone :</label>
-        <input type="text" class="form-control" id="telephone">
-
-        <label for="email">E-mail :</label>
-        <input type="text" class="form-control" id="email">
+        </div>
 
         <br>
+
+        <!--SELECTION DES PRODUITS-->
+        <h4>Selection des produits</h4>
+        <div class="form-inline">
+            <select class="form-control" id="produit1" name="produit" onfocus="afficheProduit(1)" >
+                <option value="">Selectionnez un produit</option>
+            </select>
+            <input type="text" class="form-control" id="prix1" placeholder="prix">
+            <input type="text" class="form-control" id="quantite1" placeholder="quantité">
+        </div>
+        <br>
+        <div class="form-inline">
+            <select class="form-control" id="produit2" name="produit" onfocus="afficheProduit(2)" >
+                <option value="">Selectionnez un produit</option>
+            </select>
+            <input type="text" class="form-control" id="prix2" placeholder="prix">
+            <input type="text" class="form-control" id="quantite2" placeholder="quantité">
+        </div>
+        <br>
+        <div class="form-inline">
+            <select class="form-control" id="produit3" name="produit" onfocus="afficheProduit(3)"  >
+                <option value="">Selectionnez un produit</option>
+            </select>
+            <input type="text" class="form-control" id="prix3" placeholder="prix">
+            <input type="text" class="form-control" id="quantite3" placeholder="quantité">
+        </div>
+        <br>
+        <label for="sel1">Montant HT : </label>
+        <input type="text" class="form-control" id="mt_ht">
+        <br>
+        <label for="sel1">Montant TVA (19,6%) : </label>
+        <input type="text" class="form-control" id="mt_tva">
+        <br>
+        <label for="sel1">Montant TTC : </label>
+        <input type="text" class="form-control" id="mt_ttc">
+        <br>
+
+
+
+
         <input type="submit" class="btn btn-primary" value="Envoyer">
         <input type="reset" class="btn btn-primary" value="Reset">
         Selection des produits (plus tard...)
