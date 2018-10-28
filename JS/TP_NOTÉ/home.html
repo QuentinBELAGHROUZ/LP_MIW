@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>TP NOTÉ JS</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body >
 <h2 style="text-align: center;">TP NOTÉ JS</h2>
 </br>
 <div class="container">
+    <button onclick="afficheLigne(1)">TEST affiche ligne</button>
+    <button onclick="affMontant()">TEST affiche montant</button>
     <form style="width: 500px;" name="test">
         <h4>Identification</h4>
         <div class="form-inline">
@@ -45,26 +47,36 @@
         <h4>Selection des produits</h4>
         <div class="form-inline">
             <select class="form-control" id="produit1" name="produit" onfocus="afficheProduit(1)" >
-                <option value="">Selectionnez un produit</option>
+                <option value="">Choisir</option>
             </select>
             <input type="text" class="form-control" id="prix1" placeholder="prix">
             <input type="text" class="form-control" id="quantite1" placeholder="quantité">
+            <span class="glyphicon glyphicon-plus" onclick="plus(1)"></span>
+            <span class="glyphicon glyphicon-minus" onclick="moins(1)"></span>
+            <span class="glyphicon glyphicon-remove" onclick="sup(1)"></span>
+
         </div>
         <br>
         <div class="form-inline">
             <select class="form-control" id="produit2" name="produit" onfocus="afficheProduit(2)" >
-                <option value="">Selectionnez un produit</option>
+                <option value="default">Choisir</option>
             </select>
             <input type="text" class="form-control" id="prix2" placeholder="prix">
             <input type="text" class="form-control" id="quantite2" placeholder="quantité">
+            <span class="glyphicon glyphicon-plus" onclick="plus(1)"></span>
+            <span class="glyphicon glyphicon-minus" onclick="moins(1)"></span>
+            <span class="glyphicon glyphicon-remove" onclick="sup(1)"></span>
         </div>
         <br>
         <div class="form-inline">
             <select class="form-control" id="produit3" name="produit" onfocus="afficheProduit(3)"  >
-                <option value="">Selectionnez un produit</option>
+                <option value="">Choisir</option>
             </select>
             <input type="text" class="form-control" id="prix3" placeholder="prix">
             <input type="text" class="form-control" id="quantite3" placeholder="quantité">
+            <span class="glyphicon glyphicon-plus" onclick="plus(1)"></span>
+            <span class="glyphicon glyphicon-minus" onclick="moins(1)"></span>
+            <span class="glyphicon glyphicon-remove" onclick="sup(1)"></span>
         </div>
         <br>
         <label for="sel1">Montant HT : </label>

@@ -71,23 +71,50 @@ function afficheProduit(n){
     for(i = 0; i < d.length; i++){
         option.options[option.length] = new Option(d[i], d[i]);
     }
-
     afficheLigne(n);
 }
 
+function plus(n){
+    quantite = parseInt(document.getElementById('quantite'+n).value);
+    quantite += 1;
+    document.getElementById('quantite'+n).value = quantite;
+    affMontant();
+}
 function moins(n){
-
+    document.getElementById('quantite'+n).value -= 1;
+    affMontant();
 }
 
 function sup(n){
-
+    document.getElementById('quantite'+n).value = '';
 }
 
 function affMontant(){
+    let montant_ht = 0;
+    let montant_tva = 0;
+    let montant_ttc = 0;
+    for(var i = 1; i <= 3; i++){
+        montant_ht += (document.getElementById('prix'+i).value * document.getElementById('quantite'+i).value);
+    }
+    montant_ht = montant_ht.toFixed(2);
+    montant_tva = montant_ht * 0.196;
+    montant_tva = montant_tva.toFixed(2);
+    montant_ttc = parseFloat(montant_ht) + parseFloat(montant_tva);
 
+    document.getElementById('mt_ht').value = montant_ht;
+    document.getElementById('mt_tva').value = montant_tva;
+    document.getElementById('mt_ttc').value = montant_ttc;
 }
 
 function afficheLigne(n){
+
+
+
+   /*let produit = 'moniteur';
+   let index = d.indexOf(produit);
+   var prix = p[index];
+   document.getElementById('prix'+n).value = prix;
+   document.getElementById('quantite'+n).value = 1;*/
 
 }
 
