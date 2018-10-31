@@ -5,10 +5,12 @@ var p = new Array(1000, 80, 150, 20, 30, 50);
 
 
 //--------FORMULAIRE----------------------------------------
+/* TODO optimiser affichage produits/prix/quantites (utiliser une boucle sur les 2 elements?)
+*  TODO habillage du formulaire en CSS */
 
 function afficheForm() {
-    let ch = '<form style="width: 500px;" name="commande">\n' +
-        '        <h4>Identification</h4>\n' +
+    let ch1 = '<form style="width: 500px;" name="commande">\n' +
+        '        <button onclick="test()">test</button>\n' +
         '        <div class="form-inline">\n' +
         '            <label for="nom">Nom :</label>\n' +
         '            <input type="text" class="form-control" id="nom">\n' +
@@ -38,42 +40,23 @@ function afficheForm() {
         '\n' +
         '        <br>\n' +
         '\n' +
-        '        <!--SELECTION DES PRODUITS-->\n' +
-        '        <h4>Selection des produits</h4>\n' +
-        '        <div class="form-inline">\n' +
-        '            <select class="form-control" id="produit1" name="produit" onfocus="afficheProduit(1)" onchange="afficheLigne(1)">\n' +
-        '               <option>Choisir</option>' +
-        '            </select>\n' +
-        '            <input type="text" class="form-control" id="prix1" placeholder="prix" readonly>\n' +
-        '            <input type="text" class="form-control" id="quantite1" placeholder="quantité" readonly>\n' +
-        '            <span class="glyphicon glyphicon-plus" onclick="plus(1)"></span>\n' +
-        '            <span class="glyphicon glyphicon-minus" onclick="moins(1)"></span>\n' +
-        '            <span class="glyphicon glyphicon-remove" onclick="sup(1)"></span>\n' +
-        '\n' +
-        '        </div>\n' +
-        '        <br>\n' +
-        '        <div class="form-inline">\n' +
-        '            <select class="form-control" id="produit2" name="produit" onfocus="afficheProduit(2)" onchange="afficheLigne(2)">\n' +
-        '                <option>Choisir</option>' +
-        '            </select>\n' +
-        '            <input type="text" class="form-control" id="prix2" placeholder="prix" readonly>\n' +
-        '            <input type="text" class="form-control" id="quantite2" placeholder="quantité" readonly>\n' +
-        '            <span class="glyphicon glyphicon-plus" onclick="plus(2)"></span>\n' +
-        '            <span class="glyphicon glyphicon-minus" onclick="moins(2)"></span>\n' +
-        '            <span class="glyphicon glyphicon-remove" onclick="sup(2)"></span>\n' +
-        '        </div>\n' +
-        '        <br>\n' +
-        '        <div class="form-inline">\n' +
-        '            <select class="form-control" id="produit3" name="produit" onfocus="afficheProduit(3)" onchange="afficheLigne(3)">\n' +
-        '               <option>Choisir</option>' +
-        '            </select>\n' +
-        '            <input type="text" class="form-control" id="prix3" placeholder="prix" readonly>\n' +
-        '            <input type="text" class="form-control" id="quantite3" placeholder="quantité" readonly>\n' +
-        '            <span class="glyphicon glyphicon-plus" onclick="plus(3)"></span>\n' +
-        '            <span class="glyphicon glyphicon-minus" onclick="moins(3)"></span>\n' +
-        '            <span class="glyphicon glyphicon-remove" onclick="sup(3)"></span>\n' +
-        '        </div>\n' +
-        '        <br>\n' +
+        '        <h4>Selection des produits</h4>\n';
+
+    let ch2 = '';
+    for (let i = 1; i <= 3; i++) {
+        ch2 = ' <div class="form-inline">' +
+            '              <select class="form-control" id="produit'+i+'" name="produit" onfocus="afficheProduit(' + i + ')" onchange="afficheLigne(' + i + ')">' +
+            '  <option>Choisir</option>' +
+            '     </select>' +
+            '                  <input type="text" class="form-control" id="prix' + i + '"  placeholder="prix" readonly>' +
+            '       <input type="text" class="form-control" id="quantite' + i + '" placeholder="quantité" readonly>' +
+            '            <span class="glyphicon glyphicon-plus" onclick="plus(' + i + ')"></span>' +
+            '                  <span class="glyphicon glyphicon-minus" onclick="moins('+i+')"></span>' +
+            '               <span class="glyphicon glyphicon-remove" onclick="sup('+i+')"></span>';
+        ch1 = ch1.concat(ch2);
+    }
+
+     let ch3 =    '        <br>\n' +
         '        <label for="sel1">Montant HT : </label>\n' +
         '        <input type="text" class="form-control" id="mt_ht" readonly>\n' +
         '        <br>\n' +
@@ -92,7 +75,10 @@ function afficheForm() {
         '        Selection des produits (plus tard...)\n' +
         '    </form>';
 
-    document.getElementsByTagName("body")[0].innerHTML = ch;
+    ch1 = ch1.concat(ch3);
+    console.log(ch1);
+
+    document.getElementsByTagName("body")[0].innerHTML = ch1;
 }
 
 
@@ -179,6 +165,7 @@ function afficheLigne(n) {
     let prix = p[index];
     document.getElementById('prix' + n).value = prix;
     document.getElementById('quantite' + n).value = 1;
+    affMontant();
 }
 
 
@@ -190,7 +177,7 @@ function plus(n) {
 }
 
 function moins(n) {
-    if(document.getElementById('quantite' + n).value == 0)
+    if (document.getElementById('quantite' + n).value == 0)
         alert('Une quanité ne peut pas être négative ;)');
     else
         document.getElementById('quantite' + n).value -= 1;
@@ -199,6 +186,8 @@ function moins(n) {
 }
 
 function sup(n) {
+    document.getElementById('produit' + n).value = '';
+    document.getElementById('prix' + n).value = '';
     document.getElementById('quantite' + n).value = '';
 }
 
@@ -218,10 +207,5 @@ function affMontant() {
     document.getElementById('mt_tva').value = montant_tva;
     document.getElementById('mt_ttc').value = montant_ttc;
 }
-
-
-
-
-
 
 
