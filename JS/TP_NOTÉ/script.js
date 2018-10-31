@@ -5,12 +5,12 @@ var p = new Array(1000, 80, 150, 20, 30, 50);
 
 
 //--------FORMULAIRE----------------------------------------
-/* TODO optimiser affichage produits/prix/quantites (utiliser une boucle sur les 2 elements?)
-*  TODO habillage du formulaire en CSS */
+/*  TODO habillage du formulaire en CSS */
 
 function afficheForm() {
     let ch1 = '<form style="width: 500px;" name="commande">\n' +
-        '        <button onclick="test()">test</button>\n' +
+        '<fieldset class="ident">' +
+        '<legend>Identification</legend>'+
         '        <div class="form-inline">\n' +
         '            <label for="nom">Nom :</label>\n' +
         '            <input type="text" class="form-control" id="nom">\n' +
@@ -40,7 +40,9 @@ function afficheForm() {
         '\n' +
         '        <br>\n' +
         '\n' +
-        '        <h4>Selection des produits</h4>\n';
+        '</fieldset>'+
+        '<fieldset class="produits">'+
+        '        <legend>Selection des produits</legend>';
 
     let ch2 = '';
     for (let i = 1; i <= 3; i++) {
@@ -50,30 +52,27 @@ function afficheForm() {
             '     </select>' +
             '                  <input type="text" class="form-control" id="prix' + i + '"  placeholder="prix" readonly>' +
             '       <input type="text" class="form-control" id="quantite' + i + '" placeholder="quantité" readonly>' +
-            '            <span class="glyphicon glyphicon-plus" onclick="plus(' + i + ')"></span>' +
-            '                  <span class="glyphicon glyphicon-minus" onclick="moins('+i+')"></span>' +
-            '               <span class="glyphicon glyphicon-remove" onclick="sup('+i+')"></span>';
+            '            <span class="fas fa-plus" onclick="plus(' + i + ')"></span>' +
+            '                  <span class="fas fa-minus" onclick="moins('+i+')"></span>' +
+            '               <span class="fas fa-times" onclick="sup('+i+')"></span>' +
+            '</div>';
         ch1 = ch1.concat(ch2);
     }
 
-     let ch3 =    '        <br>\n' +
-        '        <label for="sel1">Montant HT : </label>\n' +
-        '        <input type="text" class="form-control" id="mt_ht" readonly>\n' +
-        '        <br>\n' +
-        '        <label for="sel1">Montant TVA (19,6%) : </label>\n' +
-        '        <input type="text" class="form-control" id="mt_tva" readonly>\n' +
-        '        <br>\n' +
-        '        <label for="sel1">Montant TTC : </label>\n' +
-        '        <input type="text" class="form-control" id="mt_ttc" readonly>\n' +
-        '        <br>\n' +
-        '\n' +
-        '\n' +
-        '\n' +
-        '\n' +
-        '        <input type="submit" class="btn btn-primary" value="Envoyer" onclick="validation()">\n' +
-        '        <input type="reset" class="btn btn-primary" value="Reset">\n' +
-        '        Selection des produits (plus tard...)\n' +
-        '    </form>';
+     let ch3 =    '</fieldset> \n' +
+         '<fieldset class="montant">'+
+         '        <label for="sel1">Montant HT : </label>\n' +
+         '        <input type="text" class="form-control" id="mt_ht" readonly>\n' +
+         '        <br>\n' +
+         '        <label for="sel1">Montant TVA (19,6%) : </label>\n' +
+         '        <input type="text" class="form-control" id="mt_tva" readonly>\n' +
+         '        <br>\n' +
+         '        <label for="sel1">Montant TTC : </label>\n' +
+         '        <input type="text" class="form-control" id="mt_ttc" readonly>\n' +
+         '</fieldset>' +
+         '        <input type="submit" class="btn btn-primary" value="Envoyer" onclick="validation()">\n' +
+         '        <input type="reset" class="btn btn-primary" value="Reset">\n' +
+         '    </form>';
 
     ch1 = ch1.concat(ch3);
     console.log(ch1);
@@ -189,6 +188,7 @@ function sup(n) {
     document.getElementById('produit' + n).value = '';
     document.getElementById('prix' + n).value = '';
     document.getElementById('quantite' + n).value = '';
+    affMontant();
 }
 
 function affMontant() {
