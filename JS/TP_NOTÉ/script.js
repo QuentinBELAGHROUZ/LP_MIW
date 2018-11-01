@@ -7,7 +7,7 @@ var p = new Array(1000, 80, 150, 20, 30, 50);
 //--------FORMULAIRE----------------------------------------
 
 function afficheForm() {
-    let ch1 = '<form style="width: 500px;" name="commande">' +
+    let ch = '<form style="width: 500px;" name="commande">' +
         '<fieldset class="ident">' +
         '<legend>Identification</legend>' +
         '<div class="group">' +
@@ -35,21 +35,24 @@ function afficheForm() {
         '<fieldset class="produits">' +
         '        <legend>Selection des produits</legend>';
 
-    let ch2 = '';
+
     for (let i = 1; i <= 3; i++) {
-        ch2 = '<select id="produit' + i + '" name="produit" onfocus="afficheProduit(' + i + ')" onchange="afficheLigne(' + i + ')">' +
-            '<option selected="selected">TEST</option>' +
-            '     </select>' +
+        ch += '<select id="produit' + i + '" name="produit" onchange="afficheLigne(' + i + ')">' +
+            '<option selected="selected">choisir</option>';
+
+        for(let j in d)
+            ch += '<option value=' + d[j] + '>' + d[j] + '</option>';
+
+        ch +=    '     </select>' +
             '                  <input type="text" class="form-control" id="prix' + i + '"  placeholder="prix" readonly>' +
             '       <input type="text" class="form-control" id="quantite' + i + '" placeholder="quantité" readonly>' +
             '            <span class="fas fa-plus" onclick="plus(' + i + ')"></span>' +
             '                  <span class="fas fa-minus" onclick="moins(' + i + ')"></span>' +
             '               <span class="fas fa-times" onclick="sup(' + i + ')"></span>' +
             '</div>';
-        ch1 = ch1.concat(ch2);
     }
 
-    let ch3 = '</fieldset>' +
+    ch += '</fieldset>' +
         '<fieldset class="montant">' +
         '        <label for="sel1">Montant HT : </label>' +
         '        <input type="text" class="form-control" id="mt_ht" readonly>' +
@@ -64,10 +67,9 @@ function afficheForm() {
         '        <input type="reset" class="btn btn-primary" value="Reset">' +
         '    </form>';
 
-    ch1 = ch1.concat(ch3);
-    document.getElementsByTagName("body")[0].innerHTML = ch1;
-}
 
+    document.getElementsByTagName("body")[0].innerHTML = ch;
+}
 
 //--------CHAMPS--------------------------------------------
 
@@ -126,16 +128,6 @@ function verifEmail(email) {
 
 //---------PRODUITS-----------------------------------------
 
-function afficheProduit(n) {
-    let option = '';
-
-    for (var i in d)
-        option += "<option value='" + d[i] + "'>" + d[i] + "</option>";
-
-    document.getElementById('produit' + n).innerHTML = option;
-    afficheLigne(n);
-}
-
 function afficheLigne(n) {
     let produitSelectionne = document.getElementById('produit' + n).value;
     let index = d.indexOf(produitSelectionne);
@@ -149,7 +141,7 @@ function afficheLigne(n) {
 function plus(n) {
     if (document.getElementById('quantite' + n).value == '')
         alert('Saisissez d\'abord un produit !');
-    else{
+    else {
         quantite = parseInt(document.getElementById('quantite' + n).value);
         quantite += 1;
         document.getElementById('quantite' + n).value = quantite;
@@ -160,9 +152,9 @@ function plus(n) {
 function moins(n) {
     if (document.getElementById('quantite' + n).value == '')
         alert('Saisissez d\'abord un produit !');
-    else if(document.getElementById('quantite' + n).value == 0)
+    else if (document.getElementById('quantite' + n).value == 0)
         alert('Une quantité ne peut pas être négative ;)');
-    else{
+    else {
         document.getElementById('quantite' + n).value -= 1;
         affMontant();
     }
@@ -170,7 +162,7 @@ function moins(n) {
 }
 
 function sup(n) {
-    if (document.getElementById('quantite' + n).value != ''){
+    if (document.getElementById('quantite' + n).value != '') {
         document.getElementById('produit' + n).value = '';
         document.getElementById('prix' + n).value = '';
         document.getElementById('quantite' + n).value = '';
