@@ -61,70 +61,92 @@ b)SELECT count(*) FROM vol WHERE num_pilote = 104;
 c)SELECT count(*) from pilote;
 d)
 e)select avg(capacite) from avion where nom_avion = 'Airbus'
+
 f)select num_avion, nom_avion from avion where localisation = 'Paris' order by nom_avion
+
 g)select p.num_pilote, p.nom_pilote, a.num_avion, a.nom_avion
 	from pilote p
 	inner join vol v on p.num_pilote = v.num_pilote
 	inner join avion a on v.num_avion = a.num_avion
 	ORDER BY p.num_pilote DESC
+
 h)select p.nom_pilote
 	from pilote as p
 	inner join vol as v on p.num_pilote = v.num_pilote
 	where v.ville_depart = 'Paris'
+
 i)select DISTINCT p.nom_pilote
 	from pilote as p
 	inner join vol as v on p.num_pilote = v.num_pilote
 	where v.num_avion = 5004 or v.num_avion = 5005
+
 j)select DISTINCT p.nom_pilote
 	from pilote p
 	inner join vol v on p.num_pilote = v.num_pilote
 	inner join avion a on v.num_avion = a.num_avion
 	where a.nom_avion = 'Airbus'
+
 k)SELECT num_vol, ville_depart, ville_arrivee
 	from VOL
 	where num_avion =
 	( select num_avion from vol where num_vol = 'IT509')
+
 l)SELECT distinct p.nom_pilote
 	FROM pilote as p inner join vol as v
 	on P.num_pilote = v.num_pilote
 	where p.adresse != v.ville_arrivee
+
 m)SELECT DISTINCT p.num_pilote
 	From pilote as p
 	inner join vol as v on p.num_pilote = v.num_pilote
 	 where v.num_avion in
 	 (select v.num_avion from vol as v where v.num_pilote = 104)
+
 n)SELECT DISTINCT p.nom_pilote
 	From pilote as p
 	inner join vol as v on p.num_pilote = v.num_pilote
 	 where v.num_avion in
 	 (select v.num_avion from vol as v where v.num_pilote = 104)
+
 o)SELECT v.num_vol, v.ville_depart, v.ville_arrivee, a.nom_avion, a.capacite
 	FROM vol as v inner join avion as a ON v.num_avion = a.num_avion
 	WHERE v.ville_depart in ( select adresse from pilote where num_pilote= 105 )
+
 p)select p.num_pilote, p.nom_pilote, p.adresse, count(v.num_pilote)
 	from pilote as p inner join vol as v on p.num_pilote = v.num_pilote
 	group by num_pilote
+
 q)select a.num_avion, a.nom_avion from avion as a
 	inner join vol as v on a.num_avion = v.num_avion
 	group by a.num_avion having count(v.num_avion) > 2
+
 r)select nom_avion, avg(capacite) from AVION GROUP BY nom_avion
+
 s)
+
 t)select DISTINCT ville_depart from VOl WHERE ville_depart in (select ville_arrivee from VOL )
+
 u)select nom_pilote
 from pilote inner join VOL on pilote.num_pilote = VOL.num_pilote
 where ville_depart not in (select ville_depart from VOL) AND ville_arrivee not in (select ville_arrivee from VOL)
-v)select DISTINCT v.num_avion , a.nom_avion from VOL as v inner join AVION as a on v.num_avion = a.num_avion where v.num_pilote != 100
+
+v)select DISTINCT v.num_avion , a.nom_avion from VOL as v
+inner join AVION as a on v.num_avion = a.num_avion where v.num_pilote != 100
+
 w)select DISTINCT num_avion
 from VOl
 where num_avion not in (
 	select num_avion
 	from VOl
 	WHERE ville_depart ='Paris')
+
 x)select DISTINCT a.num_avion , a.nom_avion
 from vol as v inner join avion as a on v.num_avion = a.num_avion
 where v.num_avion not in (
 	select num_avion
 	from vol
 	WHERE ville_depart ="Paris")
+
 y)select DISTINCT nom_pilote from PILOTE where adresse in (select localisation from avion)
+
 z)select num_pilote from PILOTE where num_pilote not in( select num_pilote from VOl )
