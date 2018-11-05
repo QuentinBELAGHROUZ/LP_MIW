@@ -46,9 +46,6 @@ function afficheForm() {
         ch +=    '     </select>' +
             '                  <input type="text" class="form-control" id="prix' + i + '"  placeholder="prix" readonly>' +
             '       <input type="text" class="form-control" id="quantite' + i + '" placeholder="quantité" readonly>' +
-            '<button onclick="plus(' + i + ')">+</button>' +
-            '<button onclick="moins(' + i + ')">-</button>' +
-            '<button onclick="sup(' + i + ')">-</button>' +
             '            <span class="fas fa-plus" onclick="plus(' + i + ')"></span>' +
             '                  <span class="fas fa-minus" onclick="moins(' + i + ')"></span>' +
             '               <span class="fas fa-times" onclick="sup(' + i + ')"></span>' +
