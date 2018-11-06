@@ -8,6 +8,8 @@ function deleteContent(){
     document.getElementById('text').value = '';
 }
 
-function checkFoorm(form){
-    console.log('test');
+function exo4(n){
+    document.open();
+    document.write('<h1>'+ n +'</h1>');
+    document.close();
 }
