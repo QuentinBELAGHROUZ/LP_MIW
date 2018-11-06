@@ -38,7 +38,7 @@ function afficheForm() {
 
     for (let i = 1; i <= 3; i++) {
         ch += '<select id="produit' + i + '" name="produit" onchange="afficheLigne(' + i + ')">' +
-            '<option selected="selected">choisir</option>';
+            '<option value="choisir" selected="selected">choisir</option>';
 
         for(let j in d)
             ch += '<option value=' + d[j] + '>' + d[j] + '</option>';
@@ -152,20 +152,20 @@ function plus(n) {
 function moins(n) {
     if (document.getElementById('quantite' + n).value == '')
         alert('Saisissez d\'abord un produit !');
-    else if (document.getElementById('quantite' + n).value == 0)
+    else if (document.getElementById('quantite' + n).value == 1)
         alert('Une quantité ne peut pas être négative ;)');
     else {
         document.getElementById('quantite' + n).value -= 1;
         affMontant();
     }
-
 }
 
 function sup(n) {
     if (document.getElementById('quantite' + n).value != '') {
-        document.getElementById('produit' + n).value = '';
+        document.getElementById('produit' + n).value = 'choisir';
         document.getElementById('prix' + n).value = '';
         document.getElementById('quantite' + n).value = '';
+
         affMontant();
     }
 }
@@ -182,7 +182,7 @@ function affMontant() {
     montant_ht = montant_ht.toFixed(2);
     montant_tva = montant_ht * 0.196;
     montant_tva = montant_tva.toFixed(2);
-    montant_ttc = parseFloat(montant_ht) + parseFloat(montant_tva);
+    montant_ttc = (parseFloat(montant_ht) + parseFloat(montant_tva)).toFixed(2);
 
     document.getElementById('mt_ht').value = montant_ht;
     document.getElementById('mt_tva').value = montant_tva;
