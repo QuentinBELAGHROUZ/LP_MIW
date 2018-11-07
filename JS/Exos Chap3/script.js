@@ -2,6 +2,8 @@ let r = ['01', '02', '03', '04', '05'];
 let d = ['ecran', 'clavier', 'souris', 'imprimante', 'enceinte'];
 let p = [150, 20, 10, 100, 50];
 
+let tab_ex8 = ['r01*ecran*150', 'r02*clavier*20', 'r03*souris*10'];
+
 function printLength(text) {
     var size = document.getElementById('textarea').value.length;
     document.getElementById('text').value = size
@@ -37,5 +39,26 @@ function exo6() {
 }
 
 function exo7() {
-    console.log('ok');
+    let ref_prod =document.getElementById("produit").value;
+    let index = r.indexOf(ref_prod);
+    let des_prod = d[index];
+    let prix_prod = p[index];
+    document.open();
+    document.write('Designation : ' + des_prod  + ' Prix : ' + prix_prod);
+    document.close();
+}
+
+function split_array_ex8(tab){
+    let tab2 = [];
+    for(let i in tab)
+        tab2[i] = tab[i].split('*');
+    return tab2;
+}
+
+function exo8(){
+    let tmp = document.getElementById('produit').value;
+    tmp = tmp.split(',');
+    document.getElementById('ref').value = tmp[0];
+    document.getElementById('prix').value = tmp[2];
+
 }

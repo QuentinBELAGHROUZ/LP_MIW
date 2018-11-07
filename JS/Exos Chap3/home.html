@@ -40,16 +40,34 @@
     <input type="button" onclick="exo6()" value="Palindrome">
 </form>
 <br>
-<hr> -->
+<hr>
 
 <h3>Exercice 7</h3>
 <div id="liste"></div>
 <script>
 let ch = '<select id="produit" name="produit" onchange="exo7()">';
 for(let i in r)
-    ch += '<option value=' + r[i] + '>' + r[i] + '</option>';
+    ch += '<option id="prod" value=' + r[i] + '>' + r[i] + '</option>';
 document.getElementsByTagName("div")[0].innerHTML = ch;
-</script>
+</script> -->
+
+<h3>Exercice 8</h3>
+<div id="liste">
+    <script>
+        let ch = '<select id="produit" name="produit" onchange="exo8()">';
+        for(let i in tab_ex8)
+            ch += '<option id="prod" value="'+split_array_ex8(tab_ex8)[i]+'" >' + split_array_ex8(tab_ex8)[i][1] + '</option>';
+        document.getElementsByTagName("div")[0].innerHTML = ch;
+    </script>
+    <input type="text" id="ref" placeholder="reference">
+    <input type="text" id="prix" placeholder="prix">
+    <input type="text" id="quantite" placeholder="quantite">
+    <input type="text" id="montant" placeholder="montant">
+</div>
+
+
+
+
 
 
 
