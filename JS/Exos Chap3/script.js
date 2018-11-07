@@ -60,5 +60,6 @@ function exo8(){
     tmp = tmp.split(',');
     document.getElementById('ref').value = tmp[0];
     document.getElementById('prix').value = tmp[2];
+    document.getElementById('montant').value = tmp[2] * parseInt(document.getElementById('quantite').value)
 
 }
