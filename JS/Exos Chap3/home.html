@@ -43,7 +43,13 @@
 <hr> -->
 
 <h3>Exercice 7</h3>
-<div></div>
+<div id="liste"></div>
+<script>
+let ch = '<select id="produit" name="produit" onchange="exo7()">';
+for(let i in r)
+    ch += '<option value=' + r[i] + '>' + r[i] + '</option>';
+document.getElementsByTagName("div")[0].innerHTML = ch;
+</script>
 
 
 
