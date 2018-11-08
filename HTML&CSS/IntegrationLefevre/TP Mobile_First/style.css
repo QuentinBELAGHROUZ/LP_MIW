@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "RobotoDraft";
+    src: url("../font\RobotoDraft-Regular.woff.ttf") format("woff");
+}
+
+body {
+    margin: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #e0e0e0;
+    color: #424242;
+    font-family: 'RobotoDraft', Helvetica, Arial;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+}
+
+.header{
+    height: 64px;
+    background-color: white;
+}
+
+.header .logo {
+    /*padding: 1.1em 2.5em .9em 1em;*/
+    padding-top: 0.5em;
+    width: 30%;
+}
+
+.header nav {
+   float: right;
+    height: 100%;
+    position: relative;
+}
+
+.header nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header nav li {
+    margin: 0;
+    display: inline;
+    font-size: 80%;
+}
+
+.header nav a {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 16px;
+    color: #37474f;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2.5;
+}
+
+.header nav a:hover {
+    background: #37474f;
+    color: #fff;
+}

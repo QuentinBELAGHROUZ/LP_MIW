@@ -4,7 +4,6 @@
     <list default="true" id="309f6185-ac46-4143-9e93-ddb0dff2e618" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JS/Exos Chap3/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/JS/Exos Chap3/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/Exos Chap3/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/Exos Chap3/script.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,16 +15,18 @@
     <session id="1077478791">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="10" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="6" />
+          <entry key="html" value="11" />
           <entry key="js" value="6" />
           <entry key="rnc" value="1" />
           <entry key="ts" value="1" />
@@ -33,7 +34,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="6" />
+          <entry key="CSS" value="10" />
+          <entry key="HTML" value="11" />
           <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="RNG Compact" value="1" />
@@ -42,14 +44,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="156" />
           <entry key="gitignore" value="9" />
-          <entry key="html" value="841" />
+          <entry key="html" value="1064" />
           <entry key="js" value="1548" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="841" />
+          <entry key="CSS" value="156" />
+          <entry key="HTML" value="1064" />
           <entry key="JavaScript" value="1548" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
@@ -63,26 +67,61 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/script.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="62" column="98" selection-start-line="62" selection-start-column="98" selection-end-line="62" selection-end-column="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/script.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1054">
+                  <caret line="62" column="98" selection-start-line="62" selection-start-column="98" selection-end-line="62" selection-end-column="98" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/home.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="442">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="296">
+                  <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/src/home.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/src/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="595">
+                  <caret line="56" selection-start-line="56" selection-end-line="59" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,6 +136,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/JS/Exos Chap3/script.js" />
         <option value="$PROJECT_DIR$/JS/Exos Chap3/home.html" />
+        <option value="$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/style.css" />
+        <option value="$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/home.html" />
+        <option value="$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/src/home.html" />
+        <option value="$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/home.html" />
+        <option value="$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/style.css" />
       </list>
     </option>
   </component>
@@ -106,7 +150,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="1072" />
     <option name="height" value="1047" />
@@ -122,6 +166,53 @@
             <path>
               <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
               <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegrationLefevre" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegrationLefevre" type="462c0819:PsiDirectoryNode" />
+              <item name="TP Mobile_First" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegrationLefevre" type="462c0819:PsiDirectoryNode" />
+              <item name="TP Mobile_First" type="462c0819:PsiDirectoryNode" />
+              <item name="font" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegrationLefevre" type="462c0819:PsiDirectoryNode" />
+              <item name="TP Mobile_First" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="TP_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LP_MIW" type="462c0819:PsiDirectoryNode" />
+              <item name="HTML&amp;CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="TP_1" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LP_MIW" type="b2602c69:ProjectViewProjectNode" />
@@ -192,17 +283,19 @@
       <workItem from="1541492894788" duration="27000" />
       <workItem from="1541498833866" duration="7372000" />
       <workItem from="1541595538412" duration="8896000" />
+      <workItem from="1541670837238" duration="298000" />
+      <workItem from="1541688132934" duration="3737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19483000" />
+    <option name="totallyTimeSpent" value="23518000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1072" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17885375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10927505" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -285,9 +378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="132" column="46" lean-forward="true" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -298,17 +388,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="184" column="33" lean-forward="true" selection-start-line="184" selection-start-column="33" selection-end-line="184" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="149" column="18" lean-forward="true" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
+        <state relative-caret-position="1054">
           <caret line="62" column="98" selection-start-line="62" selection-start-column="98" selection-end-line="62" selection-end-column="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/Exos Chap3/home.html">
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/TP_1/css/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/src/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
+        <state relative-caret-position="595">
+          <caret line="56" selection-start-line="56" selection-end-line="59" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/src/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HTML&amp;CSS/IntegrationLefevre/TP Mobile_First/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
         </state>
       </provider>
     </entry>
