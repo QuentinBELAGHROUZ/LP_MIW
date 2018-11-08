@@ -55,11 +55,18 @@ function split_array_ex8(tab){
     return tab2;
 }
 
+function montant() {
+    let montant = document.getElementById('prix').value * document.getElementById('quantite').value;
+    document.getElementById('montant').value = montant;
+}
+
 function exo8(){
     let tmp = document.getElementById('produit').value;
     tmp = tmp.split(',');
     document.getElementById('ref').value = tmp[0];
     document.getElementById('prix').value = tmp[2];
-    document.getElementById('montant').value = tmp[2] * parseInt(document.getElementById('quantite').value)
+}
+
+function exo9(){
 
 }
