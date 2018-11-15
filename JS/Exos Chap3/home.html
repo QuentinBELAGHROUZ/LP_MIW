@@ -11,14 +11,16 @@
             integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
             crossorigin=""></script>
 </head>
-<body>
+
+<body onload="setMap();">
 <style>
     body{
         margin: 0;
     }
-    #mapid { height: 300px;
+    #map { height: 300px;
         width:100%;}
 </style>
+
 <h2 style="text-align: center;">Exerices JS chapitre 3</h2>
 </br>
 
@@ -82,26 +84,20 @@ document.getElementsByTagName("div")[0].innerHTML = ch;
 
 <button onclick="exo11()">Exo 11</button> -->
 
-<div id="liste">
-    <select id="ville" name="produit" onchange="exo12(this.value)">
-        <option id="ville1" value="44.566667:6:083333">GAP</option>
-        <option id="ville2" value="43.696036:7:265592">NICE</option>
-        <option id="ville3" value="48:856614:2:352221">PARIS</option>
+<form>
+    <select id="selectVille" onchange="setPos()">
+        <option value="48.856614:2.352221">Paris</option>
+        <option value="43.696036:7.265592">Nice</option>
+        <option value="44.566667:6.083333">Gap</option>
+        <option value="31.6341600:-7.9999400">Marrakech</option>
     </select>
-</div>
-<div id="mapid"></div>
+</form>
 
-<script>
-    //map
-    var map = L.map('mapid');
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © OpenStreetMap contributors';
-    var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-    map.setView([47.0, 3.0], 6);
-    map.addLayer(osm);
-    var marker = L.marker([46.6835956, -0.4137665]);
-    marker.addTo(map);
-</script>
+<div id="map">
+
+</div>
+
+
 
 
 

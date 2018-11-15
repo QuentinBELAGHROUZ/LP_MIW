@@ -115,17 +115,22 @@ function exo11(){
     document.close();
 }
 
-function coordonnees(v){
-    v= v.split(':');
-    let tmp =[];
-    let n1 = v[0];
-    let n2 = v[1] + '.' + v[2]
-    tmp.push(n1);
-    tmp.push(n2);
-    return tmp;
+function setMap() {
+    macarte = new L.map('map').setView([48.856614, 2.352221], 14);
+    marker = L.marker([48.856614, 2.352221]).addTo(macarte);
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+        // Il est toujours bien de laisser le lien vers la source des données
+        attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+        minZoom: 1,
+        maxZoom: 20
+    }).addTo(macarte);
 }
 
-function exo12(v){
-    console.log(coordonnees(v)[0], coordonnees(v)[1]);
-    return L.marker(coordonnees(this.value)[0], coordonnees(this.value)[1]);
+function setPos(){
+    console.log(document.getElementById('selectVille').value);
+    marker.remove();
+    let tabPosition = document.getElementById('selectVille').value.split(':');
+    marker = L.marker([tabPosition[0], tabPosition[1]]).addTo(macarte);
+    macarte.setView([tabPosition[0], tabPosition[1]], 14);
 }
+
