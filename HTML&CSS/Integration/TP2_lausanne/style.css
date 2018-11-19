@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+body{
+    background-image: url("img/lauzanne_img.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+@font-face {
+    font-family: "Flaticon";
+    src: url("font/Flaticon.eot");
+    src: url("font/Flaticon.eot?#iefix") format("embedded-opentype"),
+    url("font/Flaticon.woff") format("woff"),
+    url("font/Flaticon.ttf") format("truetype"),
+    url("fony/Flaticon.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("font/Flaticon.svg#Flaticon") format("svg");
+    }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 20px;
+}
+
+.flaticon-facebook-logo:before { content: "\f100"; }
+.flaticon-twitter-logo-silhouette:before { content: "\f101"; }
+.flaticon-instagram-social-network-logo-of-photo-camera:before { content: "\f102"; }
+.flaticon-pinterest-logo:before { content: "\f103"; }
+.flaticon-youtube:before { content: "\f104"; }
+.flaticon-linkedin-logo:before { content: "\f105"; }
+.flaticon-search:before { content: "\f106"; }
+.flaticon-sun:before { content: "\f107"; }
+.flaticon-menu:before { content: "\f108"; }
+.flaticon-vertical-line:before { content: "\f109"; }
+
+.flaticon-sun{
+    display: none;
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo{
+    width: 20%;
+}
+
+.logo img{
+    width: 100%
+}
+
+
+.titre h2   {
+    color: white;
+}
+.icons_left{
+    display: inline-flex;
+}
+
+.icons_mid{
+    display: none;
+}
+
+.menu{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu ul li{
+    text-align: center;
+    list-style: none;
+    border-bottom: 1px solid white;
+}
+
