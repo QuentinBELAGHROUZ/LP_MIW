@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Exercice 1</title>
+</head>
+
+<body>
+    <form>
+        <label for='num_compte'>Numéro de compte : </label><input  id='num_compte' name='saisie'  type='text'/>
+        <input type="button" value="ok" onclick="test()">
+        <input id="zone_affichage" placeholder="zone d'affichage"><br>
+        <input type="reset">
+    </form>
+
+    <button onclick="conformCpt('05-C86889-15')">TEST</button>
+
+<script>
+    let Reg = {
+        cpt:/^(([0][0-9])|([1][0-5]))[-][ABCDEFGHI][0-9]{5}[-][0-9]{2}$/
+    }
+
+    function conformCpt(n){
+        return Reg.cpt.test(n);
+    }
+
+    function validCpt(n){
+        if(!conformCpt(n))
+        {
+            alert('num non conforme');
+            return false;
+        }
+
+        let tab = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+
+        let tmp = n.split('-');
+        let str_cpt = '';
+
+        for(let i = 0; i < tmp.length; i++){
+            str_cpt += tmp[i];
+        }
+
+        let tmp2 = str_cpt.split(str_cpt[2]);
+        let test = tmp2[0].concat(tab.indexOf(str_cpt[2]) + 1);
+        let str_cpt_modified = test.concat(tmp2[1]);
+        let sum = 0;
+        for(let j = 0; j < str_cpt_modified.length-2; j++){
+
+            if(j%2 == 0)
+                sum += str_cpt_modified[j]*1;
+            else
+                sum += str_cpt_modified[j]*3;
+        }
+
+        let reste = sum % 23;
+        if((reste - tmp[2]) == 0){
+            return true;
+        }
+
+        else{
+            return false;
+        }
+
+    }
+
+    function test(){
+        let num_compte = document.getElementById('num_compte').value;
+        console.log(document.getElementById('num_compte').value);
+        if(num_compte == '')
+            document.getElementById('zone_affichage').value = 'Saisir un numéro';
+        else if(!conformCpt(num_compte))
+            document.getElementById('zone_affichage').value = 'Numéro non conforme';
+        else if(validCpt(num_compte))
+            document.getElementById('zone_affichage').value = 'Numéro valide';
+        else if(!validCpt(num_compte))
+            document.getElementById('zone_affichage').value = 'Numéro non valide';
+    }
+</script>
+
+</body>
+</html>
+

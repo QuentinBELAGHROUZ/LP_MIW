@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title></title>
+    <style type="text/css">
+        #mtht, #mtttc, #mttva {position:absolute;left:255px;color:#0000FF;}
+        #valid {position:absolute;left:200px;color:#0000FF;}
+        #reset {position:absolute;left:290px;color:#0000FF;}
+        .init  {position:absolute;left:105px;color:#0000FF;}
+        .init2 {position:absolute;left:350px;color:#0000FF;}
+        .col2  {position:absolute;left:290px;}
+        fieldset{background:#CCFFFF;width:35em;}
+    </style>
+
+    <script type="text/javascript">
+        "use strict";                // permet d'éviter des erreurs d'écriture en JS
+
+        // L'objet reg contient  des expressions régulières et pourrait-être mis dans une bibliothèque
+
+        let reg ={
+            Cp:/^\d{5}$/,
+            Tel:/^((\d\d ){4}|(\d\d-){4})\d\d$/,
+            Email:/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z0-9]{2,4}$/i
+        }
+
+
+        // initialisation des tableaux:  D contient les désgnations des produits et P les prix correspondants
+        let D=["choisir","Pc","imprimante","Souris","ecran"];
+        let P=[0,1000,80,12,150];
+
+        let np=P.length-1 ;         // nombre de produits
+
+        const tva=0.2 ;             // taux de TVA actuel
+        const nl=5	;               // nombre de lignes dans la commande
+
+        function moins(n){
+            let q = document.forms[0].qt[n] ;               //  ou  document.getElementsByName("qt")[n]
+            if (q.value==1) sup(n);						    // si la quantité= 1 on efface la ligne
+            if (q.value>1) {q.value--;affMontant();}
+        }
+        function plus(n){
+            let q = document.forms[0].qt[n];					//  ou  document.getElementsByName("qt")[n]
+            if (q.value !="") {q.value++; affMontant(); }
+        }
+        function sup(n){
+            let l=document.getElementsByName("liste")[n]  ;
+            if (l.selectedIndex!=0){
+                l.selectedIndex=0;
+                document.getElementsByName("prix")[n].value="";
+                document.getElementsByName("qt")[n].value="";
+                affMontant();
+            }
+        }
+        function validation(){
+            let mess="";
+
+            let s = document.getElementsByName("saisie"); // s = nodeList contenant les zones de saisie
+
+            let cpt = 0 , ident=["nom","prénom","adresse","cp","ville","téléphone","mail"];
+
+            for(let i= 0;i<s.length;i++){if(s[i].value=="") { mess+= "Le champ " + ident[i] + " est vide \n";}}
+
+            if (s[3].value!="" && !reg.Cp.test(cp.value)) mess+="code postal non valide\n";
+            if (s[5].value!="" && !reg.Tel.test(tel.value)) mess+="Téléphone non valide\n";
+            if (s[6].value!="" && !reg.Email.test(email.value)) mess+="E-mail non valide";
+
+            if (mess !="")  alert(mess);
+        }
+
+        function affMontant(){
+            let som = 0;   // montant total HT
+            let p = document.getElementsByName("prix"); // NodeList contenant les prix
+            let q = document.getElementsByName("qt");   // NodeList contenant les quantités
+
+            let mtht = document.getElementById("mtht");   // noeud contenant le montant HT
+            let mttva = document.getElementById("mttva"); // noeud contenant le montant TVA
+            let mttc = document.getElementById("mttc");   // noeud contenant le montant TTC
+
+            for (let i=0; i< nl; i++){
+                som+=p[i].value * q[i].value
+            }
+
+            if (som==0)
+                mtht.value = mttva.value= mtttc.value="";
+            else{
+                mtht.value = som.toFixed(2)+" €";
+                mttva.value= (som * tva).toFixed(2)+" €";
+                mtttc.value= (som  * (1+tva)).toFixed(2)+" €";
+            }
+        }
+
+
+        function affLigne(n){
+
+            let p = document.getElementsByName("prix"); // NodeList contenant les prix
+            let q = document.getElementsByName("qt");   // NodeList contenant les quantités
+
+            // let choix = document.forms[0].liste[n].selectedIndex;
+            let choix = document.getElementsByName("liste")[n].selectedIndex;
+
+            if (choix !=0) {
+                p[n].value=P[choix];
+                q[n].value=1;
+            }
+            else
+            {
+                p[n].value="";
+                q[n].value="";
+            }
+
+            affMontant();   // appel de la fonction affichant les différents montants
+
+        }
+
+        function afficheForm(){   // fonction affichant le bon de commande sans utilisation des littéraux de gabarit
+            let ch="";
+            ch+= "<form>";
+            ch+= "<fieldset id='identification'><legend>Bon de Commande</legend>";
+            ch+= "<p class='identification' > Identification</p>";
+            ch+= " <label for='nom'>Nom : </label><input class='init' id='nom' name='saisie'  type='text' required /> ";
+            ch+= " <label for='prenom' class='col2'>Prénom : </label><input class='init2' id='prenom' name='saisie' type='text' required/><br/><br/>";
+            ch+= " <label for='adresse'>Adresse : </label><input class='init' id='adresse' name='saisie'type='text' size=57 maxlength=57 required/><br/><br/>";
+            ch+= " <label for='cp'>Code Postal : </label><input class='init'id='cp' name='saisie' type='text' required />";
+            ch+= " <label for='ville' class='col2'>Ville : </label></div><input class='init2' id='ville' name='saisie' type='text' required /><br/><br/>";
+            ch+= " <label for='tel'>Téléphone : </label><input class='init' id='tel' name='saisie' type='text'required />" ;
+            ch+= " <label for='email' class='col2'>E-mail: </label></div><input class='init2' id='email' name='saisie' type='email'required /><br/><br/>" ;
+            ch+= "</fieldset>";
+            ch+= "<fieldset id='selection'>";
+            ch+= "<p class='selection' > Selection des produits</p>";
+
+            for ( let i =0; i< nl; i++){
+                ch+= " <select name= 'liste' onChange=affLigne("+i+")> "
+                for (let j=0 ; j<= np ; j++) {
+                    ch+="<option>"+D[j]+"</option>"
+                }
+                ch+="</select> "
+                ch+= "<input type='text' name='prix' readonly/> "
+                ch+= "<input type='text' name='qt' readonly/> "
+                ch+= "<input type='button' value= '+' onClick='plus(" +i+ ")'> "
+                ch+= "<input type='button' value= '-' onClick='moins(" +i+ ")'> "
+                ch+= "<input type='button' value= 'x' onClick='sup(" +i+ ")'> <br/><br/>"
+            };
+            ch+= "</fieldset>";
+            ch+= "<fieldset id='resultats'>" ;
+            ch+= " <label>Mt HT : </label><input id='mtht' type='text' name='mtht' readonly/><br/><br/>";
+            ch+= " <label>MT TVA  : </label><input id='mttva' type='text' name='mttva' readonly/><br/><br/>";
+            ch+= " <label>Mt TTC : </label><input type='text'  id='mtttc' name='mtttc' readonly/><br/><br/>" ;
+            ch+= "</fieldset><br/>" ;
+            ch+= "<input type='button' id='valid' value= 'Validation' onClick='validation()'> ";
+            ch+= "<input type='reset' id='reset' value= 'Reset' > " ;
+            ch+= "</form>";
+            document.getElementsByTagName("body")[0].innerHTML=ch	 ;
+        }
+
+        function afficheForm2(){ // version avec des littéraux de gabarit  utilisable à partir de ES6
+            let ch=``;
+            ch= `<form>
+					 <fieldset id='identification'><legend>Bon de Commande</legend>
+					 <p class='identification' > Identification</p>
+					 <label for='nom'>Nom : </label><input  class='init' id='nom' name='saisie'  type='text' required />
+					 <label class='col2'>Prénom : </label><input class='init2' id='prenom' name='saisie' type='text' required/><br/><br/>
+					 <label>Adresse : </label><input class='init' id='adresse' name='saisie'type='text' size=57 maxlength=57 required/><br/><br/>
+					 <label>Code Postal : </label><input class='init'id='cp' name='saisie' type='text' required />
+					 <label class='col2'>Ville : </label></div><input class='init2' id='ville' name='saisie' type='text' required /><br/><br/>
+					 <label>Téléphone : </label><input class='init' id='tel' name='saisie' type='text'required />
+					 <label class='col2'>E-mail: </label></div><input class='init2' id='email' name='saisie' type='email'required /><br/><br/>
+					 </fieldset>
+					 <fieldset id='selection'>
+					 <p class='selection' > Selection des produits</p>`;
+
+            for ( let i =0; i< nl; i++){
+                ch+= `<select name= 'liste' onChange=affLigne(${i})> `;
+                for (let j=0 ; j<= np ; j++) {
+                    ch+=`<option>${D[j]}</option>`;
+                };
+                ch+=`</select>
+						<input type='text' name='prix' readonly/>
+						<input type='text' name='qt' readonly/>
+						<input type='button' value= '+' onClick='plus(${i})'>
+						<input type='button' value= '-' onClick='moins(${i})'>
+						<input type='button' value= 'x' onClick='sup(${i})'> <br/><br/>`
+            };
+            ch+= `</fieldset>
+					 <fieldset id='resultats'>
+					 <label>Mt HT : </label><input id='mtht' type='text' name='mtht' readonly/><br/><br/>
+					 <label>MT TVA  : </label><input id='mttva' type='text' name='mttva' readonly/><br/><br/>
+					 <label>Mt TTC : </label><input type='text'  id='mtttc' name='mtttc' readonly/><br/><br/>
+					 </fieldset><br/>
+					 <input type='button' id='valid' value= 'Validation' onClick='validation()'>
+					 <input type='reset' id='reset' value= 'Reset' >
+					 </form>`;
+
+
+            document.getElementsByTagName("body")[0].innerHTML=ch;
+
+            // remarque :  ce site pourra vous aider  pour la réalisation de formulaires :  http://41mag.fr/tutoriel-html5-comment-faire-un-formulaire-complet.html
+        }
+
+        onload=afficheForm2;
+    </script>
+</head>
+<body >
+
+</body>
+</html>

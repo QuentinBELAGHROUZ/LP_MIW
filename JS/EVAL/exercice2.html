@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Exercice 2</title>
+</head>
+
+<body onload="display(1000, 500)">
+
+
+<script>
+
+
+    let Reg = {
+        nb:/^\d+[^.,]/
+    }
+    function display(x, y){
+        let ch = '<form>' +
+            '    <label for="decimal">Decimal : </label><input  id="decimal" name="champ"  type="text"/>' +
+            '    <input type="button" value="X" onclick="close()"><br><br>\n' +
+            '    <input id="zone_affichage" name="champ" placeholder="résultat" readonly><br><br>\n' +
+            '    <input type="button" value="binaire" onclick=dB(document.getElementById("decimal").value)>' +
+            '    <input type="button" value="hexa" onclick=dH(document.getElementById("decimal").value)>' +
+            '    <input type="button" value="reset" onclick="reset()">\n' +
+            '</form>';
+
+        document.getElementsByTagName("body")[0].innerHTML = ch;
+    }
+
+    function dB(n){
+        console.log(n);
+
+        if(Reg.nb.test(n)){
+            console.log('oK');
+            let x = new Number(n);
+            x = x.toString(2);
+            document.getElementById('zone_affichage').value = x;
+        }
+        else{
+            console.log('fail');
+            let erreur = 'ERREUR';
+            document.getElementById('zone_affichage').value = erreur;
+        }
+    }
+
+    function dH(n){
+        if(Reg.nb.test(n)){
+            let x = new Number(n);
+            x = x.toString(16);
+            document.getElementById('zone_affichage').value = x;
+        }
+        else{
+            console.log('fail');
+            let erreur = 'ERREUR';
+            document.getElementById('zone_affichage').value = erreur;
+        }
+    }
+
+    function reset(){
+        document.getElementById('decimal').value = '';
+        document.getElementById('zone_affichage').value = '';
+    }
+
+    function close(){
+
+    }
+
+</script>
+
+</body>
+</html>
+
