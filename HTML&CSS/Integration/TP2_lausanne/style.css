@@ -85,11 +85,26 @@ a{
 
 .menu{
     background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0px;
+    width: 80%;
+    font-size: 1.4em;
+    ;
+
 }
 
 .menu ul li{
     text-align: center;
     list-style: none;
     border-bottom: 1px solid white;
+    padding: 10px 10px 10px 10px;
+}
+
+.menu ul li:hover {
+    background-color: ghostwhite;
+}
+
+.menu ul li a:hover{
+    color: black;
 }
 
