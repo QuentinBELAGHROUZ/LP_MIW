@@ -20,15 +20,28 @@ String.prototype.convertCss = function(){
   return str;
 }
 
-String.prototype.trim() = function(){
-  let regex = /^
-}
+let x = 5
+let t1 = ['Thomas', 'Eric'];
 
 //EXTENSION DE LA CLASSE ARRAY
-Array.prototype.merge()
+Array.prototype.merge = function(t){
+    return t1.concat(t);
+}
 
 
-function test(){
-  let str = 'background color ';
-  alert(str.convertCss());
+//EXTENSION DE LA CLASSE NUMBER
+Number.prototype.p = function(n){
+    return Math.pow(x, n);
+}
+
+//EXTENSION DE LA CLASSE NODE
+Node.prototype.changeId = function(val) {
+
+}
+
+
+
+function test() {
+    let tmp = t1.merge(['Leo']);
+    alert(tmp);
 }

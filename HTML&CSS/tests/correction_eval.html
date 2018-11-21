@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eval Layout</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<h1 class="txtcenter">Evaluation  Layout</h1>
+		<h2 class="desktopG txtcenter">Vue Desktop > 1370px</h2>
+		<h2 class="desktop txtcenter">Vue Desktop</h2>
+		<h2 class="tablette txtcenter">Vue Tablette à 768px à 970px</h2>
+		<h2 class="telephone txtcenter">Vue Téléphone à 320px</h2>
+
+		<div class="container">
+			<div class="photo"><img src="img/mer.jpg" alt=""></div>
+			<div class="photo"><img src="img/lac.jpg" alt=""></div>
+			<div class="photo"><img src="img/montagne.jpg" alt=""></div>
+			<div class="photo"><img src="img/foret.jpg" alt=""></div>
+		</div>
+
+	</body>
+	<style>
+		.txtcenter {
+			text-align: center;
+		}
+		img {
+			width: 100%;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.desktop, .desktopG ,.tablette {
+			display: none;
+		}
+		@media screen and (min-width: 768px){
+			.container {
+				justify-content:space-around;
+			}
+			.photo {
+				width: 48%;
+				margin-top: 10px;
+			}
+			.desktop, .desktopG, .telephone {
+				display: none;
+			}
+			.tablette {
+				display: block;
+			}
+		}
+		@media screen and (min-width: 970px){
+			.container {
+				width: 970px;
+				margin: 0 auto;
+			}
+			.telephone, .tablette, .desktopG {
+				display: none;
+			}
+			.desktop {
+				display: block;
+			}
+		}
+		@media screen and (min-width: 1370px){
+			.container {
+				width: 1370px;
+			}
+			.photo {
+				width: 24%;
+			}
+			.telephone, .tablette, .desktop {
+				display: none;
+			}
+			.desktopG {
+				display: block;
+			}
+		}
+
+	</style>
+</html>

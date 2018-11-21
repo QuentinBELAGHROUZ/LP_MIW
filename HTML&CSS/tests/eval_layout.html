@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<style>
+        *{
+            margin: 0 auto;
+        }
+
+        h1, h2{
+            text-align: center;
+        }
+
+        .desktop2, .desktop, .tablette{
+            display: none;
+        }
+
+        .bloc_photos{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .photo{
+            width: 90%;
+            margin-bottom: 5px;
+        }
+
+        @media screen and (min-width: 769px) {
+            .telephone{
+                display: none;
+            }
+
+            .photo{
+                width: 45%;
+
+            }
+        }
+
+        @media screen and (min-width: 1370px) {
+            .photo{
+                width: 25%;
+            }
+        }
+	</style>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Eval Layout</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<h1 class="txtcenter">Evaluation  Layout</h1>
+		<h2 class="desktop2">Vue Desktop > 1370px</h2>
+		<h2 class="desktop">Vue Desktop</h2>
+		<h2 class="tablette">Vue Tablette à 768px à 970px</h2>
+		<h2 class="telephone">Vue Téléphone à 320px</h2>
+
+
+		<div class="bloc_photos">
+			<img class="photo" src="img/mer.jpg">
+            <img class="photo" src="img/lac.jpg">
+            <img class="photo" src="img/montagne.jpg">
+            <img class="photo" src="img/foret.jpg">
+		</div>
+	</body>
+</html>
