@@ -12,6 +12,11 @@ body{
     background-position: right;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 @font-face {
     font-family: "Flaticon";
     src: url("font/Flaticon.eot");
@@ -53,17 +58,18 @@ body{
     display: none;
 }
 
-header{
+#page {
+    min-height:100vh; /* 1 */
+    display:flex; /* 2 */
+    flex-direction:column; /* 3 */
+}
+
+.header{
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 50px;
-}
-
-a{
-    text-decoration: none;
-    color: white;
 }
 
 .logo{
@@ -78,7 +84,7 @@ a{
     color: white;
 }
 
-.icons_left{
+.icons_top_right{
     display: inline-flex;
 }
 
@@ -86,14 +92,17 @@ a{
     display: none;
 }
 
+#content {
+    flex-grow:1; /* 4 */
+}
+
 .menu{
     background-color: rgba(0, 0, 0, 0.8);
-  /*  width: 80%; */
+    width: 80%;
     font-size: 1.4em;
-   /* margin-left: auto;
-    margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 298px;
-    /*display: flex;*/
 }
 
 .menu ul li{
@@ -108,23 +117,12 @@ a{
     color: black;
 }
 
-.menu ul li a{
+.menu ul li a:hover{
     color: black;
     width:100%;
-    padding: 1em;
-    text-align: center;
-    /*display: block;*/
 }
 
 .menu ul li a h2{
-
+    font-weight: normal;
+    font-size: 100%;
 }
-
-@media screen and (min-width: 750px)  {
-    .menu ul{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-    }
-}
-
