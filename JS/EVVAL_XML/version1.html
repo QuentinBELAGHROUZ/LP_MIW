@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bibliAjax.js"></script>
+</head>
+<body>
+<h1>EVAL VERSION 1</h1>
+<button onclick="$get('livres.xml', null, afficheInfos, erreur)">Affichage en console</button>
+<script>
+
+    function afficheInfos() {
+        let xml = xhttp.responseXML;
+        let book = xml.getElementsByTagName("BOOK");
+
+        for (let i = 0; i < book.length; i++) {
+            let isbn = book[i].getAttribute("ISBN");
+            console.log('ISBN : ' + isbn);
+
+            let titre = book[i].getElementsByTagName('TITLE')[0].innerHTML;
+            console.log('TITRE : ' + titre);
+
+            let editeur = book[i].getElementsByTagName('NAME')[0].innerHTML;
+            console.log('EDITEUR : ' + editeur);
+
+            let annee_pub = book[i].getElementsByTagName('DATEPUB')[0].innerHTML;
+            console.log('ANNEE : ' + annee_pub);
+
+            let nb_auteurs = book[i].getElementsByTagName('AUTHOR').length;
+            console.log('NOMBRE D\'AUTEURS : ' + nb_auteurs);
+
+
+
+            for (let j = 0; j < nb_auteurs; j++) {
+                let prenom = book[i].getElementsByTagName('FIRSTNAME')[j].innerHTML;
+                let nom = book[i].getElementsByTagName('LASTNAME')[j].innerHTML;
+                console.log('-  ' + prenom + ' ' + nom);
+            }
+
+            console.log('---------------------------');
+        }
+    }
+
+    function erreur() {
+        console.log('erreur');
+    }
+</script>
+</body>
+</html>

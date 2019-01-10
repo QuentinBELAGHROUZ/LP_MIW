@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bibliAjax.js"></script>
+</head>
+<body>
+<script>
+    function printGif(url){
+        var img = document.createElement('img');
+        img.setAttribute('src', url);
+        document.getElementsByTagName('body')[0].appendChild(img);
+    }
+
+
+    function affiche(xhttp) {
+        let my_data = JSON.parse(xhttp.responseText);
+        console.log(my_data);
+
+
+        let members = my_data['members'];
+
+
+        let my_select = document.createElement('select');
+        let option = document.createElement('option');
+        option.textContent = 'choisir';
+        my_select.appendChild(option);
+
+        for(let i in members){
+            let option = document.createElement('option');
+            option.textContent = members[i].name;
+            my_select.appendChild(option);
+        }
+
+
+        my_select.onchange = () => {
+          //alert(members[my_select.selectedIndex -1].age);
+
+            for(let i in members[my_select.selectedIndex -1])
+            {
+                let p = document.createElement('p');
+                p.textContent = members[my_select.selectedIndex -1][i];
+                document.getElementsByTagName("body")[0].appendChild(p);
+            }
+
+            document.getElementsByTagName("body")[0].removeChild(my_select);
+
+        };
+
+        document.getElementsByTagName('body')[0].appendChild(my_select);
+    }
+
+    function erreur() {
+        console.log('erreur');
+    }
+
+
+</script>
+
+<button onclick="$get('data.json', null, affiche, erreur)">TEST</button>
+
+<button onclick="printGif('safe_image.gif')">Afficher Gif</button>
+
+
+
+</body>
+</html>

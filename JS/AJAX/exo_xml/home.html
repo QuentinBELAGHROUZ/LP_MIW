@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>XML</title>
+    <script src="../../TP_BASE_PROJET/bibliAjax.js"></script>
+</head>
+<body>
+<button onclick="$get('data.xml', null, afficheInfos, erreur)">Affichage en console</button>
+
+
+<script>
+    function afficheInfos() {
+        let body =  document.getElementsByTagName("body")[0];
+        body.removeChild(document.getElementsByTagName("button")[0]);
+
+        let xml = xhttp.responseXML;
+        let c = xml.getElementsByTagName("COMMANDE");
+        let prix = 0;
+
+        for (let i = 0; i < c.length; i++) {
+
+            let h3 = document.createElement('h3');
+            body.appendChild(h3);
+            h3.textContent = c[i].getElementsByTagName('NOM')[0].innerHTML + ' '+ c[i].getElementsByTagName('PRENOM')[0].innerHTML;
+
+
+            let table = document.createElement('table');
+
+
+            let tr_head = document.createElement('tr');
+            table.appendChild(tr_head);
+
+            let td_produit = document.createElement('td');
+            tr_head.appendChild(td_produit);
+            td_produit.textContent = 'PRODUIT';
+            let td_prix = document.createElement('td');
+            tr_head.appendChild(td_prix);
+            td_prix.textContent = 'PRIX';
+            let td_quantite = document.createElement('td');
+            tr_head.appendChild(td_quantite);
+            td_quantite.textContent = 'QUANTITE';
+
+
+
+
+
+            let nb = c[i].getElementsByTagName("PRODUIT").length;
+
+            for(let j = 0; j < nb; j++){
+                let tr = document.createElement('tr');
+                table.appendChild(tr);
+
+                let td_prod = document.createElement('td');
+                let libelle_prod = c[i].getElementsByTagName('LIBELLE')[j].innerHTML;
+                td_prod.textContent = libelle_prod;
+                tr.appendChild(td_prod);
+
+                let td_prix = document.createElement('td');
+                let prix_produit = c[i].getElementsByTagName('PRIX')[j].innerHTML;
+                td_prix.textContent = prix_produit;
+                tr.appendChild(td_prix);
+
+                let td_q = document.createElement('td');
+                let q_produit = c[i].getElementsByTagName('QUANTITE')[j].innerHTML;
+                td_q.textContent = q_produit;
+                tr.appendChild(td_q);
+
+                let prod = c[i].getElementsByTagName('PRODUIT');
+
+                prix += parseInt((prod[j].getElementsByTagName('PRIX')[0].innerHTML)*(prod[j].getElementsByTagName('QUANTITE')[0].innerHTML));
+
+
+
+            }
+
+
+            document.getElementsByTagName('body')[0].appendChild(h3);
+            body.appendChild(table);
+            let p = document.createElement('p');
+            p.textContent = 'TOTAL : '+prix;
+            prix = 0;
+            body.appendChild(p);
+
+        }
+    }
+
+    function erreur() {
+        console.log('erreur');
+    }
+</script>
+</body>
+</html>

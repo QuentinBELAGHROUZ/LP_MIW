@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Titre de la page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="bibliAjax.js"></script>
+</head>
+<body>
+
+<script>
+    function affiche(){
+        let xml = xhttp.responseText;
+
+        console.log(xml);
+    }
+
+    function erreur(){
+        console.log('ERREUR');
+    }
+</script>
+
+
+<button onclick="$get('commandes.xml', null, affiche, erreur)">TEST</button>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bibliAjax.js"></script>
+</head>
+<body>
+<h1>EVAL VERSION 2</h1>
+<button onclick="$get('livres.xml', null, afficheInfos, erreur)">Affichage en console</button>
+<script>
+
+    function afficheInfos() {
+        let xml = xhttp.responseXML;
+        let book = xml.getElementsByTagName("BOOK");
+        let body = document.getElementsByTagName('body')[0];
+
+        body.removeChild(document.getElementsByTagName('button')[0]);
+
+        let titre_page = document.createElement('h3');
+        titre_page.textContent = 'Liste des livres de la bibliothèque';
+        body.appendChild(titre_page);
+        let select = document.createElement('select');
+        select.setAttribute("size", "3");
+        select.style.width = "150px";
+        let option_defaut = document.createElement('option');
+        option_defaut.textContent = 'Choisir ISBN...';
+        select.appendChild(option_defaut);
+        
+        for (let i = 0; i < book.length; i++) {
+            let option = document.createElement('option');
+
+            let isbn = book[i].getAttribute("ISBN");
+
+            option.textContent = isbn;
+            select.appendChild(option);
+
+            option.onclick = function() {
+                console.log(i);
+              if(document.getElementsByTagName("table")[0] != null)
+                  body.removeChild(document.getElementsByTagName("table")[0]);
+
+                let table = document.createElement('table');
+                let tr_isbn = document.createElement('tr');
+                table.appendChild(tr_isbn);
+                table.style.border = "medium solid purple";
+
+                //LIGNE ISBN
+                let td_isbn = document.createElement('td');
+                td_isbn.textContent = 'ISBN';
+                tr_isbn.appendChild(td_isbn);
+                let td_isbn_value = document.createElement('td');
+                td_isbn_value.textContent = isbn;
+                tr_isbn.appendChild(td_isbn_value);
+                td_isbn_value.style.color = "purple";
+                td_isbn_value.style.border = "thin solid purple";
+                td_isbn.style.border = "thin solid purple";
+
+
+
+                //LIGNE TITRE
+                let titre = book[i].getElementsByTagName('TITLE')[0].innerHTML;
+                console.log('TITRE : ' + titre);
+                let tr_titre = document.createElement('tr');
+                table.appendChild(tr_titre);
+                let td_titre = document.createElement('td');
+                td_titre.textContent = 'TITRE';
+                tr_titre.appendChild(td_titre);
+                let td_titre_value = document.createElement('td');
+                td_titre_value.textContent = titre;
+                tr_titre.appendChild(td_titre_value);
+                td_titre_value.style.color = "purple";
+                td_titre_value.style.border = "thin solid purple";
+                td_titre.style.border = "thin solid purple";
+
+                //LIGNE(s) AUTEUR(s)
+                //On recupere le(s) auteur(s)
+                let nb_auteurs = book[i].getElementsByTagName('AUTHOR').length;
+                for (let j = 0; j < nb_auteurs; j++) {
+                    let prenom = book[i].getElementsByTagName('FIRSTNAME')[j].innerHTML;
+                    let nom = book[i].getElementsByTagName('LASTNAME')[j].innerHTML;
+                    console.log('-  ' + prenom + ' ' + nom);
+
+                    let tr_auteur = document.createElement('tr');
+                    table.appendChild(tr_auteur);
+                    let td_auteur = document.createElement('td');
+                    td_auteur.textContent = 'AUTEUR(S)';
+                    tr_auteur.appendChild(td_auteur);
+                    let td_auteur_value = document.createElement('td');
+                    td_auteur_value.textContent = prenom+' '+nom;
+                    tr_auteur.appendChild(td_auteur_value);
+                    td_auteur_value.style.color = "purple";
+                    td_auteur_value.style.border = "thin solid purple";
+                    td_auteur.style.border = "thin solid purple";
+                }
+
+                //LIGNE EDITEUR
+                let editeur = book[i].getElementsByTagName('NAME')[0].innerHTML;
+                console.log('EDITEUR : ' + editeur);
+                let tr_editeur = document.createElement('tr');
+                table.appendChild(tr_editeur);
+                let td_editeur = document.createElement('td');
+                td_editeur.textContent = 'EDITEUR';
+                tr_editeur.appendChild(td_editeur);
+                let td_editeur_value = document.createElement('td');
+                td_editeur_value.textContent = editeur;
+                tr_editeur.appendChild(td_editeur_value);
+                td_editeur_value.style.color = "purple";
+                td_editeur_value.style.border = "thin solid purple";
+                td_editeur.style.border = "thin solid purple";
+
+                //LIGNE DATE
+                let annee_pub = book[i].getElementsByTagName('DATEPUB')[0].innerHTML;
+                console.log('ANNEE : ' + annee_pub);
+                let tr_date = document.createElement('tr');
+                table.appendChild(tr_date);
+                let td_date = document.createElement('td');
+                td_date.textContent = 'DATE PUBLICATION';
+                tr_date.appendChild(td_date);
+                let td_date_value = document.createElement('td');
+                td_date_value.textContent = annee_pub;
+                tr_date.appendChild(td_date_value);
+                td_date_value.style.color = "purple";
+                td_date_value.style.border = "thin solid purple";
+                td_date.style.border = "thin solid purple";
+
+
+
+
+                console.log('---------------------------');
+                body.appendChild(table);
+            }
+
+
+        }
+
+        body.appendChild(select);
+    }
+
+    function erreur() {
+        console.log('erreur');
+    }
+</script>
+</body>
+</html>

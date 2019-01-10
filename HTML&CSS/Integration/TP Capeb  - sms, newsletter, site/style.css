@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+}
+
+form{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+input{
+    margin-bottom: 10px;
+
+}
+
+.container{
+    width: 50%;
+}
+
+/*# sourceMappingURL=bootstrap-reboot.css.map */
+.background-image {
+  align-items: center;
+  background-image: url("images/background.jpg");
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.f1 {
+  background-color: #333333;
+  padding: 20px;
+}
+
+.f2 {
+  background-color: black;
+  padding: 20px;
+}
+
+.f3 {
+  background-color: #0d0d0d;
+  padding: 20px;
+}
+
+.menu-reseaux{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.reseaux {
+  width: 80px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.footer {
+  color: white;
+  text-align: center;
+}
+
+.footer span{
+  color: #6c757d;
+}

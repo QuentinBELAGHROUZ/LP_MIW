@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bibliAjax.js"></script>
+</head>
+<body>
+<h1>EVAL VERSION 3</h1>
+<button onclick="$get('livres.xml', null, afficheInfos, erreur)">Affichage en console</button>
+<script>
+
+    function afficheInfos() {
+        let xml = xhttp.responseXML;
+        let book = xml.getElementsByTagName("BOOK");
+        let body = document.getElementsByTagName('body')[0];
+        let div_auteur = document.createElement('div');
+        div_auteur.style.width = "120px";
+        div_auteur.style.height = "100px";
+        div_auteur.style.backgroundColor = "cyan";
+        div_auteur.style.borderRadius = "10px";
+        div_auteur.style.display = "none";
+        div_auteur.style.position = "absolute";
+        body.appendChild(div_auteur);
+
+        body.removeChild(document.getElementsByTagName('button')[0]);
+
+        let titre_page = document.createElement('h3');
+        titre_page.textContent = 'Liste des livres de la bibliothèque';
+        body.appendChild(titre_page);
+
+        let table = document.createElement('table');
+        table.style.border = "medium solid purple";
+
+        for (let i = 0; i < book.length; i++) {
+            let tr = document.createElement('tr');
+            table.appendChild(tr);
+
+            let td_isbn = document.createElement('td');
+            let isbn = book[i].getAttribute("ISBN");
+            td_isbn.textContent = isbn;
+            tr.appendChild(td_isbn);
+            td_isbn.style.border = "thin solid blue";
+
+            let td_titre = document.createElement('td');
+            let titre = book[i].getElementsByTagName('TITLE')[0].innerHTML;
+            td_titre.textContent = titre;
+            tr.appendChild(td_titre);
+            td_titre.style.border = "thin solid blue";
+
+            let td_nb_auteurs = document.createElement('td');
+            let nb_auteurs = book[i].getElementsByTagName('AUTHOR').length;
+            td_nb_auteurs.textContent = nb_auteurs;
+            tr.appendChild(td_nb_auteurs);
+            td_nb_auteurs.style.border = "thin solid blue";
+
+            td_nb_auteurs.onmouseover = (e) => {
+                div_auteur.innerHTML = "";
+                td_nb_auteurs.style.cursor = "pointer";
+
+                for (let j = 0; j < nb_auteurs; j++) {
+
+                    let prenom = book[i].getElementsByTagName('FIRSTNAME')[j].innerHTML;
+                    let nom = book[i].getElementsByTagName('LASTNAME')[j].innerHTML;
+                    //div_auteur.textContent = prenom+" "+nom;
+
+                    let p = document.createElement('p');
+                    p.textContent = prenom + " " + nom;
+                    div_auteur.appendChild(p);
+
+                }
+
+                div_auteur.style.top = e.pageY + 5 + "px";
+                div_auteur.style.left = e.pageX + 13 + "px";
+                div_auteur.style.display = "block";
+
+
+            }
+
+            td_nb_auteurs.onmouseout = (e) => {
+                div_auteur.style.display = "none";
+            }
+        }
+
+        body.appendChild(table);
+    }
+
+
+    function erreur() {
+        console.log('erreur');
+    }
+</script>
+</body>
+</html>

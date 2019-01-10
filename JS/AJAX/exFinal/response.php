@@ -3,7 +3,7 @@ header("Content-type: text/xml");
 
 try{
     $bdd = new PDO(
-        'mysql:host=localhost;dbname=exo_ajax;charset=utf8',
+        'mysql:host=localhost;dbname=Bvilles;charset=utf8',
         'root',
         'root',
         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING)
@@ -16,10 +16,10 @@ try{
 $result = $bdd -> query('SELECT * FROM categories');
 
 $liste = "<?xml version=\"1.0\"?>\n";
-$liste .= "<exemple>";
+$liste .= "<ville>";
 
 while($row = $result->fetch()){
-    $liste .= "<choix><nom>".$row['libCat']."</nom></choix>";
+    $liste .= "<nom>".$row['libCat']."</nom>";
 }
 
 $liste .= "</exemple>";
